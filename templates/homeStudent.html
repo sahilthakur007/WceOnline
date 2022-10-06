@@ -1,0 +1,15 @@
+{% extends "base.html"%}
+{% block content%}
+<div class="main-outer-box"> 
+    <h3 class="mt-5">Your Subjects</h3>
+    {% if subjects %} 
+    {%for subject in subjects%}
+    <a href="../../{{subject.id}}/student/assignments" style="text-decoration: none;">
+        <div class="form-control subject-name"><b>{{subject}}</b></div>
+    </a>
+    {%endfor%}
+    {% else %} 
+    <h6 style="margin-top: 2vh;">Subjects are not assigned to you.</h6>
+    {% endif %} 
+</div>
+{% endblock content %}

@@ -1,0 +1,90 @@
+{% extends "base.html"%}
+{% block content%}
+<div class="main-outer-box">
+    <h3 class="mt-5">Assignment Submission </h3>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+        </symbol>
+    </svg>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success d-flex align-items-center" role="alert" style="height: 24px; margin-top: 3vh;">
+        <svg role="img" style="height: 18px; width:18px; margin:0px;">
+            <use xlink:href="#check-circle-fill" />
+        </svg>
+        <div style="margin-left: 1vw; display: flex; align-items: center;">
+            <b>{{message}}</b>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+            style="margin-left: 4vw;"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <div class="form-control" style="width:70vw; margin: 1vh 0px;box-shadow: 0.5px 0.5px 4px gray;">
+        <div class="assignment-list">
+            <div><b>{{assignment.title}}</b></div>
+            <div><b>Due date:</b> {{assignment.deadline}}</div>
+        </div>
+        <div style="margin: 2vh 0px;">
+            <div class="form-control"><b>Submission instructions:</b><br> {{assignment.instruction}}</div>
+            <div style="display: flex; ">
+                <a href="{{assignment.question.url}}" target="_blank" style="text-decoration: none;">
+                    <div class="form-control" style="margin: 2vh 0px; box-shadow: 0.5px 0.5px 4px gray;">
+                        Download Assignment File</div>
+                </a>
+            </div>
+        </div>
+        {% if sollution %}
+        <div style="margin: 2vh 0px;">
+            <div class="assignment-list">
+                {% if sollution.isevaluated %}
+                <div style="color: rgb(1, 85, 1);">
+                    <h6>Assignment is evaluated.</h6>
+                </div>
+                {% else %}
+                <div style="color: rgb(1, 85, 1);">
+                    <h6>Assignment is submitted for evaluation.</h6>
+                </div>
+                {% endif %}
+                <a href="{{sollution.answer.url}}" target="_blank" style="text-decoration: none;">
+                    <div class="form-control" style="box-shadow: 0.5px 0.5px 4px gray;">
+                        Download Your Submitted File</div>
+                </a>
+            </div>
+        </div>
+        {% if sollution.isevaluated %}
+        <div style="display: flex;">
+            <div class="form-control" style="width:8vw">Marks: {{sollution.score}}</div>
+        </div>
+        {% else %}
+        <div style="display: flex; justify-content:center;">
+            <div><button class="btn btn-info" type="submit" onclick="editSubmission()">Edit submission</button></div>
+        </div>
+        {% endif %}
+        <form style="display: none; align-items: center;" method="post" enctype="multipart/form-data"
+            id="edit-submission">
+            {% csrf_token %}
+            {{form.name}}
+            {{form.answer}}
+            <div><button class="btn btn-info" type="submit">Submit</button></div>
+        </form>
+        {% else %}
+        <div style="display: flex; align-items: center; justify-content: center; margin-top: 2vh;">
+            <form style="display: flex; align-items: center;" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.name}}
+                {{form.answer}}
+                <div><button class="btn btn-info" type="submit">Submit</button></div>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+    <script>
+        function editSubmission() {
+            document.getElementById("edit-submission").style.display = "flex";
+        } 
+    </script>
+</div>
+{% endblock content %}

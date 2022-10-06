@@ -1,0 +1,26 @@
+{% extends "base.html"%}
+{% block content%}
+<div class="main-outer-box"> 
+    <div class="main-image"></div>
+<div class="main-box">
+    <div class="main-options">
+        <div class="main-option">
+            <label><h5>New User?</h5></label>
+            <button class="btn-lg main-button" style="background-color: #263238; "><a href="{% url 'signup' %}" 
+                   style="text-decoration: none; color: white;">Create New Account</a></button>
+        </div>
+        <div class="main-option">
+            <label><h5>Account already exists?</h5></label>
+            <div style="display: flex;">
+            <button class="btn-lg main-button" style="background-color: #263238;"><a href="{% url 'loginTeacher' %}" 
+                    style="text-decoration: none; color: white;">Faculty Login</a></button>
+            <button class="btn-lg main-button" style="background-color: #263238; "><a href="{% url 'loginStudent' %}"
+                    style="text-decoration: none; color: white;">Student Login</a></button>
+            <button class="btn-lg main-button" style="background-color: #263238;"><a href="{% url 'adminlogin' %}"
+                    style="text-decoration: none; color: white;">Admin Login</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content %}

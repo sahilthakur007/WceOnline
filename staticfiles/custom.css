@@ -1,0 +1,258 @@
+.head-nav-bar{
+    /* background-color: #33b5e5; */
+    background-color: #00E5FF;
+    height: 60px;
+    box-shadow: 1px 1px 6px #6b6c6c;
+    width: 100%;
+}
+.role-selection{
+    width: 100%;
+    height: 5vh;
+}
+.main-button{
+    border-radius: 15px;
+    margin: 10px;
+    /* width: 10vw; */
+    font-size: 1.5vw;
+    border: none;
+    box-shadow: 1px 1px 6px gray;
+}
+.main-outer-box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.main-box{
+    width: 60%;
+    height: 20vh;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-around;
+}
+.main-options{
+    display: flex;
+    flex-direction: column;
+}
+.main-option{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    margin: 1vw 7vw;
+}
+.main-image{
+    width: 30vw;
+    height: 22vw;
+    /* border: 1px solid grey; */
+    margin-top: 5vh;
+    /* border-radius: 20px; */
+    background-image: url(pngwing.com.png);
+    background-repeat: no-repeat;
+    background-size:30vw 22vw;
+}
+.form-box{
+    width: 45vw;
+    border: 1px solid grey;
+    margin-top: 5vh;
+    border-radius: 20px;
+    padding: 3vw;
+    /* background-color: #2c4047; */
+    background-color: #263238;
+}
+.form-input{
+    margin: 4vh 0px;
+    background-color: white;
+}
+.form-input-fname{
+    margin-right: 1vw;
+    background-color: white;
+}
+.form-input-lname{
+    margin-left: 1vw;
+    background-color: white;
+}
+.btn-signup{
+    background-color: white;
+    margin: 4vh;
+}
+.name-input{
+    display: flex;
+}
+.other-option{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    margin-top: 4vh;
+}
+.submission-form-download{
+    width:20vw; 
+    margin: 2vh 0px;
+}
+.single-assign-teacher{
+    width:70vw; 
+    margin: 1vh 0px;
+    box-shadow: 0.5px 0.5px 4px gray;
+}
+.navbar-prev-btn{
+    text-decoration: none; 
+    color: black; 
+    font-size: 16px;  
+    margin-left: 1vw;
+}
+.subject-name{
+    width:50vw; 
+    margin: 2vh 0px;
+    box-shadow: 0.5px 0.5px 4px gray;
+}
+.solution-teacher{
+    display: flex; 
+    justify-content: space-between; 
+    margin-top: 2vh;
+}
+.solution-teacher-form{
+    width: 8vw; 
+    margin: 0px 1vw;
+}
+.solution-file-teacher{
+    /* width: auto; */
+    margin-bottom: 0px;
+    box-shadow: 0.5px 0.5px 4px gray;
+}
+.assignment-list{
+    display: flex; 
+    justify-content: space-between;
+}
+.navbar-logout{
+    text-decoration: none;
+    color: black; 
+    font-size: 16px; 
+    margin-left: 2vw; 
+    margin-right: 1vw; 
+    cursor: pointer;
+}
+.navbar-styles{
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+.web-name{
+    font-size: 26px;
+}
+@media screen and (max-width: 1350px) {
+    .main-image{
+        width: 40vw;
+        height: 32vw;
+        background-size:40vw 32vw;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .main-image{
+        width: 44vw;
+        height: 36vw;
+        background-size:44vw 36vw;
+    }
+    .form-box{
+        width: 60vw;
+    }
+}
+@media screen and (max-width: 1100px){
+    .main-button{
+        font-size: 2vw;
+    }
+    .subject-name{
+        width: 60vw;
+    }
+    .subject-name{
+        width: 60vw;
+    }
+}
+@media screen and (max-width: 800px){
+    .main-button{
+        font-size: 2.5vw;
+    }
+}
+@media screen and (max-width: 700px) {
+    .main-image{
+        width: 60vw;
+        height: 52vw;
+        background-size:60vw 52vw;
+    }
+    .form-box{
+        width: 70vw;
+    }
+    .subject-name{
+        width: 70vw;
+    }
+}
+@media screen and (max-width: 650px){
+    .main-button{
+        font-size: 3vw;
+    }
+    .single-assign-teacher{
+        width:80vw; 
+    }
+    .assignment-list{
+        display: flex; 
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 550px) {
+    .main-image{
+        width: 70vw;
+        height: 62vw;
+        background-size:70vw 62vw;
+    }
+    .form-box{
+        width: 80vw;
+    }
+    .main-button{
+        font-size: 4vw;
+    }
+    .single-assign-teacher{
+        width:90vw; 
+    }
+}
+@media screen and (max-width: 500px) {
+    .solution-teacher{
+        display: flex; 
+        flex-direction: column;
+        margin: 2vh;
+    }
+    .solution-teacher-form{
+        width: 16vw;
+    }
+    .solution-file-teacher{
+        margin-bottom: 2vh;
+    }
+    .navbar-prev-btn{
+        font-size: 12px;  
+    }
+    .web-name{
+        font-size: 22px;
+    }
+}
+@media screen and (max-width: 430px) {
+    .form-box{
+        width: 90vw;
+    }
+    /* .head-nav-bar{
+        height: 80px;
+    }   */
+}
+@media screen and (max-width: 400px){
+    .main-button{
+        font-size: 4.5vw;
+    }
+    .web-name{
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 245px){
+    .head-nav-bar{
+        height: 90px;
+    }
+}

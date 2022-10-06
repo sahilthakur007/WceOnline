@@ -1,0 +1,36 @@
+{% extends "base.html"%}
+{% block content%}
+<div class="main-outer-box">
+    <h3 class="mt-5">Assignment Submissions</h3>
+    {% if sollutions %}
+    {% for solution in sollutions%}
+    <div class="form-control single-assign-teacher">
+        <div style="display: flex; justify-content: space-between;">
+            <div><b>PRN:- {{solution.roll}}</b></div>
+            <!-- <div>Uploaded time</div> -->
+        </div>
+        <div class="solution-teacher">
+            <a href="{{solution.answer.url}}" target="_blank" style="text-decoration: none;">
+                <div class="form-control solution-file-teacher">
+                    {{solution.name}}</div>
+            </a>
+            <form style="display: flex;" method="post">
+                {% csrf_token %}
+                {% if solution.isevaluated %}
+                <div class="form-control solution-teacher-form" name="marks" >{{solution.score}}</div>
+                <div class="btn btn-info" >Evaluated</div>
+                {% else %}
+                <input class="form-control solution-teacher-form" name="marks" placeholder="Enter marks">
+                <input hidden name="solution_id" value="{{solution.id}}" />
+                <button type="submit" class="btn btn-info">Save marks</button>
+                {% endif %}
+            </form> 
+        </div>
+    </div>
+    {% endfor%}
+    {% else %} 
+    <h6 style="margin-top: 2vh">No submission yet.</h6>
+    {% endif %}
+
+</div>
+{% endblock content %}

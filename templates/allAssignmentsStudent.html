@@ -1,0 +1,21 @@
+{% extends "base.html"%}
+{% block content%}
+<div class="main-outer-box"> 
+    <h3 class="mt-5">Your Assignments</h3>
+    {% if assignments %}
+    {%for assignment in assignments%}
+<a href="../../assignments/{{assignment.id}}" style="text-decoration: none;">
+    <div class="form-control subject-name">
+        <div class="assignment-list">
+            <div><b>{{assignment.title}}</b></div>
+            <div><b>Due date:</b> {{assignment.deadline}}</div>
+        </div>
+
+    </div>
+</a>
+    {%endfor%}
+    {% else %}
+    <h6 style="margin-top: 2vh">No assignment assigned yet.</h6>
+    {% endif %}
+</div>
+{% endblock content %}

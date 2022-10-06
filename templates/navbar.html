@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="head-nav-bar">
+        {% if request.user.is_authenticated %}
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <b>Do you want to logout?</b>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                  <a href="{% url 'logoutuser' %}" type="button" class="btn btn-outline-danger btn-sm">Logout</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="navbar-styles">
+          {% if request.path != '/student/home/' and request.path != '/subjects/all' and request.path != '/admin/facultylist' %} 
+            <a href="javascript:history.go(-1)" class="navbar-prev-btn"><b>PREVIOUS</b></a>
+          {% endif %}
+            <p class="text-center p-2 web-name" style="text-shadow: 1px 1px 6px #cacaca;"><b>Online School System</b></p>
+            <div style="display: flex;">
+            <!-- <a href="{% url 'home' %}" style="text-decoration: none;color: black; font-size: 16px;"><b>HOME</b></a> -->
+            <!-- <a type="button" class="btn navbar-logout" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <b>LOG OUT</b></a> -->
+            <a class="navbar-prev-btn" style="margin-right: 1vw; cursor: pointer;" 
+              data-bs-toggle="modal" data-bs-target="#exampleModal"><b>LOGOUT</b></a>
+            </div>
+        </div> 
+        {% else %}
+        <p class="text-center p-2 web-name" style="text-shadow: 1px 1px 6px #cacaca;"><b>Online School System</b></p>
+        {% endif %}
+    </div>
+</body>
+</html>

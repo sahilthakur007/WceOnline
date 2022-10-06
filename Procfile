@@ -1,0 +1,1 @@
+web: gunicorn onlineAssignmentSubmission.wsgi --log-file -
